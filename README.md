@@ -1,4 +1,4 @@
-# Configuring Pi-hole at Home
+# Setting up Pi-hole at Home
 A step-by-step guide on how to set up Pi-hole on a Raspberry Pi.
 
 # Materials needed
