@@ -75,7 +75,7 @@ Now you can use SSH to access the Raspberry Pi from your computer: `ssh username
 
 # Configure network with Raspberry Pi as DNS
 
-Now there are 2 important things, we need to know the IP of the Raspberry in our net and we need to make that IP static, to make sure it will always be the same. This depends on which router you have, so it's not going to be guided step by step.
+Now there are 2 important things; we need to know the IP of the Raspberry in our net and we need to make that IP static, to make sure it will always be the same. This depends on which router you have, so it's not going to be guided step by step.
 
 <img width="677" height="565" alt="imagen" src="https://github.com/user-attachments/assets/b030f4ff-67c5-4d62-a85d-b932a764cbda" />
 
