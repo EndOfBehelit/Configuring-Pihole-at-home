@@ -6,7 +6,10 @@ Guide about how configure a PiHole at home.
   - 1 x Raspberry Pi 2W (It can be other models, not necessary this one)
   - 1 x microSD card (I used one with 64GB but it can be less)
   - 1 x micro usb charger
-  - I also printed a case for the Raspberry bvut this is not necessary
+  - I also printed a case for the Raspberry but this is not necessary (I will upload the stl)
+
+    <img width="917" height="458" alt="imagen" src="https://github.com/user-attachments/assets/b33a6391-cb62-4451-b281-5d774aff3a15" />
+
 
 # Download Raspberry Pi Imager
 
@@ -134,9 +137,16 @@ As I mentioned before, this depends on which router you have, so there’s no sp
 
 # Adding domains to the block list
 
+In the Domains section you can add domains or RegEx to filter the querys, for example, this RegEx filter the Disney+ adds: `diproton-ads-[^\.]*\.hulu\.com\.akadns\.net`
+
+<img width="1243" height="839" alt="imagen" src="https://github.com/user-attachments/assets/0e9147fe-6df6-4478-a949-ab79f4ffcc33" />
 
 
+When everthing it's working the Dashboard should show something like this:
 
+<img width="1247" height="944" alt="imagen" src="https://github.com/user-attachments/assets/064923fa-8ca5-41ff-8e20-50f571506e40" />
+
+<img width="902" height="555" alt="imagen" src="https://github.com/user-attachments/assets/f41f60fc-acde-431a-b598-efc795faa6d7" />
 
 
 
