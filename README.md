@@ -117,7 +117,7 @@ This creates a default password, but I'm going to change it.
 
 ## Change password
 
-In the URL `http://piadd.local/admin` (This URL is only accesible if you are in the same wifi)
+In the URL `https://piadd.local/admin` (This URL is only accesible if you are in the same wifi)
 
 <img width="886" height="804" alt="imagen" src="https://github.com/user-attachments/assets/0f163268-fc9b-45b3-9850-25af66bff59e" />
 
