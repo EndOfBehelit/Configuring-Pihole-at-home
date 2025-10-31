@@ -1,12 +1,12 @@
-# Configuring-Pihole-at-home
-Guide about how configure a PiHole at home.
+# Configuring Pi-hole at Home
+A step-by-step guide on how to set up Pi-hole on a Raspberry Pi.
 
 # Materials needed
 
-  - 1 x Raspberry Pi 2W (It can be other models, not necessary this one)
-  - 1 x microSD card (I used one with 64GB but it can be less)
-  - 1 x micro usb charger
-  - I also printed a case for the Raspberry but this is not necessary (I will upload the stl)
+  - 1 × Raspberry Pi Zero 2W (other models can also work)
+  - 1 x microSD card (I used a 64 GB one, but smaller sizes will also work)
+  - 1 x micro-USB charger
+  - I also 3D-printed a case for the Raspberry Pi, but this isn’t necessary (I will upload the stl)
 
     <img width="917" height="458" alt="imagen" src="https://github.com/user-attachments/assets/b33a6391-cb62-4451-b281-5d774aff3a15" />
 
@@ -45,11 +45,11 @@ Finally the storage will be the microSD:
 
 Before installing the OS, we need to edit some settings:
 
-Host -> This will be the name for the URL (http://example.local/admin)
+Host → This will be the name for the URL (http://example.local/admin)
 
-User and pass -> For the Linux user inside the Raspberry
+User and pass → For the Linux user inside the Raspberry
 
-LAN -> SSID and pass of the wifi where is going to be placed the Raspberry Pi. (IMPORTANT!! It has to be a 2.4Ghz wifi)
+LAN → SSID and password of the Wi-Fi network where the Raspberry Pi will connect (⚠️IMPORTANT!!⚠️ It has to be a 2.4Ghz wifi)
 
 COUNTRY
 
@@ -60,11 +60,11 @@ Timezone
 <img width="873" height="728" alt="imagen" src="https://github.com/user-attachments/assets/d480c41f-ec2b-4b08-a512-6267cebdad43" />
 
 
-*IF YOU USE A 5.0 WIFI IT'S NOT GOING TO WORK!!*
+*⚠️ If you use a 5 GHz Wi-Fi network, it won’t work!!!⚠️*
 
-In case you have a 5.0 Wifi, it's needed to configure in your router a 2.4 wifi (important to have the same host in the IP addresses) and connect there the pihole. The Raspberry is going to block adds from all the wifi, 2.4 or 5.0 if the host in the IP addresses it's the same. If everything went well, the LED will be on.
+In case you have a 5.0 Wifi, it's needed to configure in your router a 2.4 wifi (important to have the same host in the IP addresses) and connect there the pihole. The Raspberry is going to block ads from all the wifi, 2.4 or 5.0 if the host in the IP addresses it's the same. If everything went well, the LED will be on.
 
-Once the OS finalice the installation, you can take the microSD and insert it in the Raspberry. The Raspberry Pi has three connections (HDMI, USB OTG, and Power) and one microSD slot. Ironically, to power the Raspberry Pi, you have to use the USB port with the charger, not the dedicated power port.
+Once the OS finishes the installation, you can take the microSD and insert it in the Raspberry. The Raspberry Pi has three connections (HDMI, USB OTG, and Power) and one microSD slot. Ironically, to power the Raspberry Pi, you have to use the USB port with the charger, not the dedicated power port.
 
 <img width="1063" height="603" alt="imagen" src="https://github.com/user-attachments/assets/aa9a186e-a287-4270-8cb1-be2b222e80f3" />
 
@@ -75,7 +75,7 @@ Now you can use SSH to access the Raspberry Pi from your computer: `ssh username
 
 # Configure network with Raspberry Pi as DNS
 
-Now there are 2 important things, we need to know the IP of the Raspberry in our net and we need to make that IP static, to make sure it will always be the same. This depends on which touter you have, so it's not going to be guided step by step.
+Now there are 2 important things, we need to know the IP of the Raspberry in our net and we need to make that IP static, to make sure it will always be the same. This depends on which router you have, so it's not going to be guided step by step.
 
 <img width="677" height="565" alt="imagen" src="https://github.com/user-attachments/assets/b030f4ff-67c5-4d62-a85d-b932a764cbda" />
 
@@ -93,7 +93,7 @@ Here the PiHole warns us about the static IP:
 
 <img width="886" height="639" alt="imagen" src="https://github.com/user-attachments/assets/dd562877-528e-414e-8566-7bc56878a0ed" />
 
-We need to choose which DNS service is going to use the PiHole to make a port forwarding (I chose Cloudfare, but you can use the Google DNS or other):
+We need to choose which DNS service Pi-hole will use to make a port forwarding (I chose Cloudfare, but you can use the Google DNS or other):
 
 <img width="886" height="571" alt="imagen" src="https://github.com/user-attachments/assets/1a2f9483-68f6-4dfb-a972-b238f925fce2" />
 
@@ -101,11 +101,11 @@ PiHole offers us a default block list, which can be modified or expanded later:
 
 <img width="677" height="450" alt="imagen" src="https://github.com/user-attachments/assets/f0ca4c9e-7cf0-4622-806d-7d9bb72de6f8" />
 
-Query logging creates a log with the querys sended and blocked:
+Query logging creates a record of the queries sent and blocked:
 
 <img width="886" height="575" alt="imagen" src="https://github.com/user-attachments/assets/01132c37-3fc3-4211-8a53-7a01af76ed60" />
 
-Then it's needed to choose a privacy level, if you don't want logs the Anonymous mode goes well, but I recommend at first use the 0 mode, to see where are you blocking adds, trying to filter and modifying the block list and later change it to anonymous.
+Then it's needed to choose a privacy level, if you don’t want logs, the Anonymous mode works well, but I recommend at first use the 0 mode, to see where are you blocking adds, trying to filter and modifying the block list and later change it to anonymous.
 
 To change the privacy level later, you need to modify the property in the `/etc/pihole/pihole.toml`. With the command `grep -n privacylevel pihole.toml` you will see in which line is the property, later run `sudo nano -c +(grep result) pihole.toml`.
 
@@ -137,14 +137,15 @@ As I mentioned before, this depends on which router you have, so there’s no sp
 
 # Adding domains to the block list
 
-In the Domains section you can add domains or RegEx to filter the querys, for example, this RegEx filter the Disney+ adds: `diproton-ads-[^\.]*\.hulu\.com\.akadns\.net`
+In the Domains section you can add domains or RegEx to filter the querys, for example, this RegEx filter the Disney+ ads: `diproton-ads-[^\.]*\.hulu\.com\.akadns\.net`
 
 <img width="1243" height="839" alt="imagen" src="https://github.com/user-attachments/assets/0e9147fe-6df6-4478-a949-ab79f4ffcc33" />
 
 
-When everthing it's working the Dashboard should show something like this:
+When everthing is working the Dashboard should show something like this:
 
 <img width="1247" height="944" alt="imagen" src="https://github.com/user-attachments/assets/064923fa-8ca5-41ff-8e20-50f571506e40" />
+
 
 <img width="902" height="555" alt="imagen" src="https://github.com/user-attachments/assets/f41f60fc-acde-431a-b598-efc795faa6d7" />
 
