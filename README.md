@@ -43,9 +43,13 @@ Finally the storage will be the microSD:
 Before installing the OS, we need to edit some settings:
 
 Host -> This will be the name for the URL (http://example.local/admin)
+
 User and pass -> For the Linux user inside the Raspberry
+
 LAN -> SSID and pass of the wifi where is going to be placed the Raspberry Pi. (IMPORTANT!! It has to be a 2.4Ghz wifi)
+
 COUNTRY
+
 Timezone
 
 <img width="886" height="673" alt="imagen" src="https://github.com/user-attachments/assets/2a95a620-a978-4823-9331-41dc350d79e2" />
@@ -53,7 +57,8 @@ Timezone
 <img width="873" height="728" alt="imagen" src="https://github.com/user-attachments/assets/d480c41f-ec2b-4b08-a512-6267cebdad43" />
 
 
-IF YOU USE A 5.0 WIFI IT'S NOT GOING TO WORK!!
+*IF YOU USE A 5.0 WIFI IT'S NOT GOING TO WORK!!*
+
 In case you have a 5.0 Wifi, it's needed to configure in your router a 2.4 wifi (important to have the same host in the IP addresses) and connect there the pihole. The Raspberry is going to block adds from all the wifi, 2.4 or 5.0 if the host in the IP addresses it's the same.
 
 
