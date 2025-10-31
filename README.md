@@ -59,7 +59,16 @@ Timezone
 
 *IF YOU USE A 5.0 WIFI IT'S NOT GOING TO WORK!!*
 
-In case you have a 5.0 Wifi, it's needed to configure in your router a 2.4 wifi (important to have the same host in the IP addresses) and connect there the pihole. The Raspberry is going to block adds from all the wifi, 2.4 or 5.0 if the host in the IP addresses it's the same.
+In case you have a 5.0 Wifi, it's needed to configure in your router a 2.4 wifi (important to have the same host in the IP addresses) and connect there the pihole. The Raspberry is going to block adds from all the wifi, 2.4 or 5.0 if the host in the IP addresses it's the same. If everything went well, the LED will be on.
+
+<img width="1063" height="603" alt="imagen" src="https://github.com/user-attachments/assets/aa9a186e-a287-4270-8cb1-be2b222e80f3" />
+
+
+Once the OS finalice the installation, you can take the microSD and insert it in the Raspberry. The Raspberry Pi has three connections (HDMI, USB OTG, and Power) and one microSD slot. Ironically, to power the Raspberry Pi, you have to use the USB port with the charger, not the dedicated power port.
+
+Now you can use SSH to access the Raspberry Pi from your computer: `ssh username@host.local` (The IP can be used too ssh username@X.X.X.X)
+
+<img width="886" height="362" alt="imagen" src="https://github.com/user-attachments/assets/8093580a-eaf5-41ff-9950-bddf59d78687" />
 
 
 # Configure network with Raspberry Pi as DNS
