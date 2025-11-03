@@ -6,7 +6,7 @@ A step-by-step guide on how to set up Pi-hole on a Raspberry Pi.
   - 1 × Raspberry Pi Zero 2W (other models can also work)
   - 1 x microSD card (I used a 64 GB one, but smaller sizes will also work)
   - 1 x micro-USB charger
-  - I also 3D-printed a case for the Raspberry Pi, but this isn’t necessary (I will upload the stl)
+  - 3D-printed a case for the Raspberry Pi, NOT ESSENTIAL (I will upload the stl for those interested)
 
     <img width="917" height="458" alt="imagen" src="https://github.com/user-attachments/assets/b33a6391-cb62-4451-b281-5d774aff3a15" />
 
@@ -20,17 +20,18 @@ Download the Raspberry Pi Imager from the official website: `https://www.raspber
 <img width="886" height="816" alt="imagen" src="https://github.com/user-attachments/assets/a4b0b828-f596-4d2e-858b-7b0f07d5b6be" />
 
 
-Now insert the microSD in the computer to install the OS and execute the imager.
+
+At this point, insert the microSD in the computer to install the OS and execute the imager.
 
 # Install Raspberry Pi OS
 
-It's needed to choose which model of Raspberry it's going to be used, the OS version and where is going to be installed.
+You'll need to choose which model of Raspberry to be used, the OS version and where it's going to be installed.
 
-In this case it's going to be used a Raspberry Pi Zero 2W:
+In this case, I used a Raspberry Pi Zero 2W:
 
 <img width="886" height="614" alt="imagen" src="https://github.com/user-attachments/assets/249390a3-2711-4552-9677-faf6d9f5bedf" />
 
-For the OS the 64bits recommended version is ok, but the Lite version will be enough for this:
+For the OS you can use the 64bits recommended version, but the Lite version will also be enough:
 
 <img width="886" height="603" alt="imagen" src="https://github.com/user-attachments/assets/7188c772-daad-4cd1-b508-8c8863ffb9ae" />
 
@@ -49,7 +50,7 @@ Host → This will be the name for the URL (http://example.local/admin)
 
 User and pass → For the Linux user inside the Raspberry
 
-LAN → SSID and password of the Wi-Fi network where the Raspberry Pi will connect (⚠️IMPORTANT!!⚠️ It has to be a 2.4Ghz wifi)
+LAN → SSID and password of the Wi-Fi network where the Raspberry Pi will connect (⚠️IMPORTANT!!⚠️ It must be a 2.4Ghz Wi-Fi)
 
 COUNTRY
 
@@ -62,7 +63,7 @@ Timezone
 
 *⚠️ If you use a 5 GHz Wi-Fi network, it won’t work!!!⚠️*
 
-In case you have a 5.0 Wifi, it's needed to configure in your router a 2.4 wifi (important to have the same host in the IP addresses) and connect there the pihole. The Raspberry is going to block ads from all the wifi, 2.4 or 5.0 if the host in the IP addresses it's the same. If everything went well, the LED will be on.
+In case you have a 5.0 Wi-Fi, you will need to configure in your router a 2.4 Wi-Fi (it's important to have the same host in the IP addresses) and connect there the pihole. The Raspberry is going to block ads from all the Wi-Fi, 2.4 or 5.0 if the host in the IP addresses it's the same. If everything went well, the LED will be on.
 
 Once the OS finishes the installation, you can take the microSD and insert it in the Raspberry. The Raspberry Pi has three connections (HDMI, USB OTG, and Power) and one microSD slot. Ironically, to power the Raspberry Pi, you have to use the USB port with the charger, not the dedicated power port.
 
@@ -75,7 +76,7 @@ Now you can use SSH to access the Raspberry Pi from your computer: `ssh username
 
 # Configure network with Raspberry Pi as DNS
 
-Now there are 2 important things; we need to know the IP of the Raspberry in our net and we need to make that IP static, to make sure it will always be the same. This depends on which router you have, so it's not going to be guided step by step.
+Now there are 2 important things; we need to know the IP of the Raspberry in our network and we need to make that IP static, to make sure it will always be the same. This depends on which router you have, so it's not going to be guided step by step.
 
 <img width="677" height="565" alt="imagen" src="https://github.com/user-attachments/assets/b030f4ff-67c5-4d62-a85d-b932a764cbda" />
 
@@ -105,7 +106,7 @@ Query logging creates a record of the queries sent and blocked:
 
 <img width="886" height="575" alt="imagen" src="https://github.com/user-attachments/assets/01132c37-3fc3-4211-8a53-7a01af76ed60" />
 
-Then it's needed to choose a privacy level, if you don’t want logs, the Anonymous mode works well, but I recommend at first use the 0 mode, to see where are you blocking adds, trying to filter and modifying the block list and later change it to anonymous.
+Then you need to choose a privacy level, if you don’t want logs, the Anonymous mode works well, but I recommend first using the 0 mode, to see where are you blocking adds, trying to filter and modifying the block list and later change it to anonymous.
 
 To change the privacy level later, you need to modify the property in the `/etc/pihole/pihole.toml`. With the command `grep -n privacylevel pihole.toml` you will see in which line is the property, later run `sudo nano -c +(grep result) pihole.toml`.
 
@@ -129,7 +130,7 @@ We can enter now the PiHole, but it won't be receiving or blocking querys:
 
 <img width="886" height="560" alt="imagen" src="https://github.com/user-attachments/assets/72d582d6-98ce-4c47-bd7b-c0dbfe759084" />
 
-It's needed to configure our PiHole as the DNS in the router, then the PiHole will make a port forwarding to Cloudfare (or the DNS you chose before) after filtering the querys.
+You'll need to configure our PiHole as the DNS in the router, then the PiHole will make a port forwarding to Cloudfare (or the DNS you chose before) after filtering the querys.
 
 As I mentioned before, this depends on which router you have, so there’s no specific guide.
 
@@ -142,7 +143,7 @@ In the Domains section you can add domains or RegEx to filter the querys, for ex
 <img width="1243" height="839" alt="imagen" src="https://github.com/user-attachments/assets/0e9147fe-6df6-4478-a949-ab79f4ffcc33" />
 
 
-When everthing is working the Dashboard should show something like this:
+When everything is working the Dashboard should show something like this:
 
 <img width="1247" height="944" alt="imagen" src="https://github.com/user-attachments/assets/064923fa-8ca5-41ff-8e20-50f571506e40" />
 
